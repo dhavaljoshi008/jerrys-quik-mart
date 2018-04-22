@@ -27,6 +27,7 @@ public class InventoryController {
 		this.inventoryService = inventoryService;
 	}
 	
+	// Get all inventory items.
 	@CrossOrigin
 	@RequestMapping(value = "/inventory", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<Item> getInventory() {

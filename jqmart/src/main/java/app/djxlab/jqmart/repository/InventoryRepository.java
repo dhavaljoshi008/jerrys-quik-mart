@@ -15,4 +15,6 @@ public interface InventoryRepository {
 	public void populateInventory();
 	
 	public List<Item> findAll();
+	
+	public void save(List<Item> inventory);
 }

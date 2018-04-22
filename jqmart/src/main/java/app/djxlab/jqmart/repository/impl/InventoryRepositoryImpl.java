@@ -26,20 +26,35 @@ public class InventoryRepositoryImpl implements InventoryRepository {
 		this.inventoryFileReaderOps = inventoryFileReaderOps;
 	}
 	
-	@Override
 	// Populate inventory.
+	@Override
 	public void populateInventory() {
 		Map<String, Item> inventory = inventoryFileReaderOps.readInventoryFromFile("classpath:/static/inventory.txt");
 		InMemoryInventory.inventory.putAll(inventory);
 	}
 
-	@Override
 	// Get list of items in inventory.
+	@Override
 	public List<Item> findAll() {
 		List<Item> inventoryList = new ArrayList<>();
 		for(String item: InMemoryInventory.inventory.keySet()) {
 			inventoryList.add(InMemoryInventory.inventory.get(item));
 		}
 		return inventoryList;
+	}
+
+	// Update inventory.
+	@Override
+	public void save(List<Item> inventory) {
+		for(Item item : inventory) {
+			String itemName = item.getName();
+			if(InMemoryInventory.inventory.containsKey(itemName)) {
+				Item inventoryItem = InMemoryInventory.inventory.get(itemName);
+				int resultingQuantity = inventoryItem.getQuantity() - item.getQuantity();
+				if(resultingQuantity >= 0) {
+					inventoryItem.setQuantity(resultingQuantity);
+				}
+			}
+		}
 	}
 }

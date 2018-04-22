@@ -23,15 +23,21 @@ public class InventoryServiceImpl implements InventoryService{
 		this.inventoryRepository = inventoryRepository;
 	}
 	
-	@Override
 	// Populate inventory.
+	@Override
 	public void populateInventory() {
 		inventoryRepository.populateInventory();
 	}
 
-	@Override
 	// Get list of items in inventory.
+	@Override
 	public List<Item> findAll() {
 		return inventoryRepository.findAll();
+	}
+
+	// Update inventory.
+	@Override
+	public void save(List<Item> inventory) {
+		inventoryRepository.save(inventory);
 	}
 }

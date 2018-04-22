@@ -13,5 +13,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class InMemoryInventory {
+	
 	public static Map<String, Item> inventory = new HashMap<>();
 }

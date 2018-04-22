@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,5 +33,12 @@ public class InventoryController {
 	@RequestMapping(value = "/inventory", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<Item> getInventory() {
 		return inventoryService.findAll();
+	}
+	
+	// Update inventory.
+	@CrossOrigin
+	@RequestMapping(value = "/inventory/update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public void updateInventory(@RequestBody List<Item> inventory) {
+		inventoryService.save(inventory);
 	}
 }

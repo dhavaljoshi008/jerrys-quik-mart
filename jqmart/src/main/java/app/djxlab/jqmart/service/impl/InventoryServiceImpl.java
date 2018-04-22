@@ -6,8 +6,11 @@
  */
 package app.djxlab.jqmart.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import app.djxlab.jqmart.model.Item;
 import app.djxlab.jqmart.repository.InventoryRepository;
 import app.djxlab.jqmart.service.InventoryService;
 
@@ -24,5 +27,11 @@ public class InventoryServiceImpl implements InventoryService{
 	// Populate inventory.
 	public void populateInventory() {
 		inventoryRepository.populateInventory();
+	}
+
+	@Override
+	// Get list of items in inventory.
+	public List<Item> findAll() {
+		return inventoryRepository.findAll();
 	}
 }

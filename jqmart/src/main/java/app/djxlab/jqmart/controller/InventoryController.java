@@ -35,10 +35,10 @@ public class InventoryController {
 		return inventoryService.findAll();
 	}
 	
-	// Update inventory.
+	// Process order.
 	@CrossOrigin
-	@RequestMapping(value = "/inventory/update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public void updateInventory(@RequestBody List<Item> inventory) {
-		inventoryService.save(inventory);
+	@RequestMapping(value = "/checkout", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public void updateInventory(@RequestBody List<Item> orderItems) {
+		inventoryService.processOrder(orderItems);
 	}
 }

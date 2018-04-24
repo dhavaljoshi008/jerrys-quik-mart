@@ -13,12 +13,13 @@ import org.springframework.stereotype.Service;
 import app.djxlab.jqmart.model.Item;
 import app.djxlab.jqmart.repository.InventoryRepository;
 import app.djxlab.jqmart.service.InventoryService;
+import app.djxlab.jqmart.utils.InventoryFileWriterOps;
 
 @Service
 public class InventoryServiceImpl implements InventoryService{
 
 	private InventoryRepository inventoryRepository;
-	
+		
 	public InventoryServiceImpl(InventoryRepository inventoryRepository) {
 		this.inventoryRepository = inventoryRepository;
 	}
@@ -35,9 +36,9 @@ public class InventoryServiceImpl implements InventoryService{
 		return inventoryRepository.findAll();
 	}
 
-	// Update inventory.
+	// Process order.
 	@Override
-	public void save(List<Item> inventory) {
-		inventoryRepository.save(inventory);
+	public void processOrder(List<Item> orderItems) {
+		inventoryRepository.processOrder(orderItems);
 	}
 }

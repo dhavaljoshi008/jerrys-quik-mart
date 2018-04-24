@@ -11,5 +11,6 @@ import java.util.Map;
 import app.djxlab.jqmart.model.Item;
 
 public interface InventoryFileReaderOps {
-	public Map<String, Item> readInventoryFromFile(String src);
+	
+	public Map<String, Item> readInventoryFromFile(String filename);
 }

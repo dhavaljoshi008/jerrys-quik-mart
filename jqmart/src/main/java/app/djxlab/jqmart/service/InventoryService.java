@@ -16,5 +16,5 @@ public interface InventoryService {
 	
 	public List<Item> findAll();
 	
-	public void save(List<Item> inventory);
+	public void processOrder(List<Item> orderItems);
 }

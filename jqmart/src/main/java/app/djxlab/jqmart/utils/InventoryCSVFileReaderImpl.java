@@ -1,5 +1,5 @@
 /**
- * InventoryCSVFileReader.java
+ * InventoryCSVFileReaderImpl.java
  * app.djxlab.jqmart.utils 
  *
  * @author: Dhaval Joshi.
@@ -7,6 +7,7 @@
 package app.djxlab.jqmart.utils;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
@@ -20,21 +21,16 @@ import app.djxlab.jqmart.model.Item;
 import app.djxlab.jqmart.model.TaxStatus;
 
 @Component
-public class InventoryCSVFileReader implements InventoryFileReaderOps {
-
-	private ResourceLoader resourceLoader;
-	
-	public InventoryCSVFileReader(ResourceLoader resourceLoader) {
-		this.resourceLoader = resourceLoader;
-	}
+public class InventoryCSVFileReaderImpl implements InventoryFileReaderOps {
 	
 	@Override
-	public Map<String, Item> readInventoryFromFile(String src) {
+	public Map<String, Item> readInventoryFromFile(String filename) {
 		Map<String, Item> inventory = new HashMap<>();
-		Resource resource = resourceLoader.getResource(src);
 		BufferedReader bufferedReader;
 		try {
-			bufferedReader = new BufferedReader(new InputStreamReader(resource.getInputStream()));
+			String file = filename;
+			FileInputStream fileInputStream = new FileInputStream(file);
+			bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
 			String line;
 			while((line = bufferedReader.readLine()) != null) {
 				line = line.replace("$", "");

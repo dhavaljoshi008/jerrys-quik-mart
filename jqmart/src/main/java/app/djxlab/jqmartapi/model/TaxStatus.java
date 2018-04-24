@@ -1,10 +1,10 @@
 /**
  * TaxStatus.java
- * app.djxlab.jqmart.model 
+ * app.djxlab.jqmartapi.model 
  *
  * @author: Dhaval Joshi.
  */
-package app.djxlab.jqmart.model;
+package app.djxlab.jqmartapi.model;
 
 public enum TaxStatus {
 	TAX_EXEMPT, TAXABLE

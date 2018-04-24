@@ -1,14 +1,14 @@
 /**
  * InventoryRepository.java
- * app.djxlab.jqmart.repository 
+ * app.djxlab.jqmartapi.repository 
  *
  * @author: Dhaval Joshi.
  */
-package app.djxlab.jqmart.repository;
+package app.djxlab.jqmartapi.repository;
 
 import java.util.List;
 
-import app.djxlab.jqmart.model.Item;
+import app.djxlab.jqmartapi.model.Item;
 
 public interface InventoryRepository {
 	

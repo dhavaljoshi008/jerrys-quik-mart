@@ -1,14 +1,14 @@
 /**
  * InventoryFileWriterOps.java
- * app.djxlab.jqmart.utils 
+ * app.djxlab.jqmartapi.utils 
  *
  * @author: Dhaval Joshi.
  */
-package app.djxlab.jqmart.utils;
+package app.djxlab.jqmartapi.utils;
 
 import java.util.List;
 
-import app.djxlab.jqmart.model.Item;
+import app.djxlab.jqmartapi.model.Item;
 
 
 public interface InventoryFileWriterOps {

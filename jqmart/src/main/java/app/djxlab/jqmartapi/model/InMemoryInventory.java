@@ -1,10 +1,10 @@
 /**
  * InMemoryInventory.java
- * app.djxlab.jqmart.model 
+ * app.djxlab.jqmartapi.model 
  *
  * @author: Dhaval Joshi.
  */
-package app.djxlab.jqmart.model;
+package app.djxlab.jqmartapi.model;
 
 import java.util.Map;
 import java.util.HashMap;

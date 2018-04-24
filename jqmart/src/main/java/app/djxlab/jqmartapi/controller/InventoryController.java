@@ -1,10 +1,10 @@
 /**
  * InventoryController.java
- * app.djxlab.jqmart.controller 
+ * app.djxlab.jqmartapi.controller 
  *
  * @author: Dhaval Joshi.
  */
-package app.djxlab.jqmart.controller;
+package app.djxlab.jqmartapi.controller;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.djxlab.jqmart.model.Item;
-import app.djxlab.jqmart.service.InventoryService;
+import app.djxlab.jqmartapi.model.Item;
+import app.djxlab.jqmartapi.service.InventoryService;
 
 @RestController
 public class InventoryController {

@@ -1,10 +1,10 @@
 /**
  * InventoryRepositoryImpl.java
- * app.djxlab.jqmart.repository.impl 
+ * app.djxlab.jqmartapi.repository.impl 
  *
  * @author: Dhaval Joshi.
  */
-package app.djxlab.jqmart.repository.impl;
+package app.djxlab.jqmartapi.repository.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +14,11 @@ import org.springframework.stereotype.Repository;
 
 import com.fasterxml.jackson.datatype.jdk8.BaseScalarOptionalDeserializer;
 
-import app.djxlab.jqmart.model.InMemoryInventory;
-import app.djxlab.jqmart.model.Item;
-import app.djxlab.jqmart.repository.InventoryRepository;
-import app.djxlab.jqmart.utils.InventoryFileReaderOps;
-import app.djxlab.jqmart.utils.InventoryFileWriterOps;
+import app.djxlab.jqmartapi.model.InMemoryInventory;
+import app.djxlab.jqmartapi.model.Item;
+import app.djxlab.jqmartapi.repository.InventoryRepository;
+import app.djxlab.jqmartapi.utils.InventoryFileReaderOps;
+import app.djxlab.jqmartapi.utils.InventoryFileWriterOps;
 
 @Repository
 public class InventoryRepositoryImpl implements InventoryRepository {

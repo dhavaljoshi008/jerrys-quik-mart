@@ -1,9 +1,9 @@
-package app.djxlab.jqmart;
+package app.djxlab.jqmartapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import app.djxlab.jqmart.service.InventoryService;
+import app.djxlab.jqmartapi.service.InventoryService;
 
 @SpringBootApplication
 public class Applicaton {

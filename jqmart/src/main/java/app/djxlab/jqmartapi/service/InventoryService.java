@@ -1,14 +1,14 @@
 /**
  * InventoryService.java
- * app.djxlab.jqmart.service 
+ * app.djxlab.jqmartapi.service 
  *
  * @author: Dhaval Joshi.
  */
-package app.djxlab.jqmart.service;
+package app.djxlab.jqmartapi.service;
 
 import java.util.List;
 
-import app.djxlab.jqmart.model.Item;
+import app.djxlab.jqmartapi.model.Item;
 
 public interface InventoryService {
 	

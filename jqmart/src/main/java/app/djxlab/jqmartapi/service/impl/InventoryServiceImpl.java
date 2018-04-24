@@ -1,19 +1,19 @@
 /**
  * InventoryServiceImpl.java
- * app.djxlab.jqmart.service.impl 
+ * app.djxlab.jqmartapi.service.impl 
  *
  * @author: Dhaval Joshi.
  */
-package app.djxlab.jqmart.service.impl;
+package app.djxlab.jqmartapi.service.impl;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import app.djxlab.jqmart.model.Item;
-import app.djxlab.jqmart.repository.InventoryRepository;
-import app.djxlab.jqmart.service.InventoryService;
-import app.djxlab.jqmart.utils.InventoryFileWriterOps;
+import app.djxlab.jqmartapi.model.Item;
+import app.djxlab.jqmartapi.repository.InventoryRepository;
+import app.djxlab.jqmartapi.service.InventoryService;
+import app.djxlab.jqmartapi.utils.InventoryFileWriterOps;
 
 @Service
 public class InventoryServiceImpl implements InventoryService{

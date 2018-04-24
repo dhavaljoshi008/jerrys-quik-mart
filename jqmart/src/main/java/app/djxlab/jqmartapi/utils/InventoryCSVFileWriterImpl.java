@@ -1,10 +1,10 @@
 /**
  * InventoryCSVFileWriterImpl.java
- * app.djxlab.jqmart.utils 
+ * app.djxlab.jqmartapi.utils 
  *
  * @author: Dhaval Joshi.
  */
-package app.djxlab.jqmart.utils;
+package app.djxlab.jqmartapi.utils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,8 +15,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import app.djxlab.jqmart.model.Item;
-import app.djxlab.jqmart.model.TaxStatus;
+import app.djxlab.jqmartapi.model.Item;
+import app.djxlab.jqmartapi.model.TaxStatus;
 
 @Component
 public class InventoryCSVFileWriterImpl implements InventoryFileWriterOps {

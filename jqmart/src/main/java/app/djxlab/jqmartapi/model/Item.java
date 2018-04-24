@@ -1,10 +1,10 @@
 /**
  * Item.java
- * app.djxlab.jqmart.model 
+ * app.djxlab.jqmartapi.model 
  *
  * @author: Dhaval Joshi.
  */
-package app.djxlab.jqmart.model;
+package app.djxlab.jqmartapi.model;
 
 public class Item {
 	

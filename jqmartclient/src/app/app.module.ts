@@ -4,6 +4,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 import { AppComponent } from './app.component';
+import { NavbarModule } from './navbar/navbar.module';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    NavbarModule,
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],

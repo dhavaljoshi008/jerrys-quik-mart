@@ -1,4 +1,4 @@
-package app.djxlab.jqmart;
+package app.djxlab.jqmartapi;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

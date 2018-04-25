@@ -2,18 +2,15 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue fixed-top">
            
     <!-- Navbar brand -->
-    <logo><a class="navbar-brand" href="#">Jerry's Quik Mart</a></logo>
+    <logo><a routerLink="/home" class="navbar-brand" href="#">Jerry's Quik Mart</a></logo>
 
     <!-- Collapsible content -->
     <links>
 
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link waves-light" mdbWavesEffect>About</a>
+            <li *ngFor="let menuItem of menuItems" class="nav-item" routerLinkActive="active">
+                <a routerLink="{{ menuItem.link }}" class="nav-link waves-light" mdbWavesEffect>{{ menuItem.caption }}</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">

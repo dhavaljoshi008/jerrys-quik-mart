@@ -6,6 +6,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppComponent } from './app.component';
 import { NavbarModule } from './navbar/navbar.module';
 import { AppRoutingModule } from './/app-routing.module';
+import { InventoryService } from './inventory/inventory.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -16,10 +18,11 @@ import { AppRoutingModule } from './/app-routing.module';
     BrowserModule,
     NavbarModule,
     MDBBootstrapModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [InventoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -55,9 +55,9 @@ public class InventoryRepositoryImpl implements InventoryRepository {
 	public void processOrder(List<Item> orderItems) {
 		int flag = 0;
 		for(Item orderItem : orderItems) {
-			String itemName = orderItem.getName();
-			if(InMemoryInventory.inventory.containsKey(itemName)) { // Check if in-memory inventory contains order item.
-				Item inventoryItem = InMemoryInventory.inventory.get(itemName);
+			String itemId = orderItem.getId();
+			if(InMemoryInventory.inventory.containsKey(itemId)) { // Check if in-memory inventory contains order item.
+				Item inventoryItem = InMemoryInventory.inventory.get(itemId);
 				int resultingQuantity = inventoryItem.getQuantity() - orderItem.getQuantity();
 				if(resultingQuantity >= 0) { // Check if sufficient quantity is available in the in-memory inventory.
 					inventoryItem.setQuantity(resultingQuantity);

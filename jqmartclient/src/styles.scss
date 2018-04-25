@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+$blue-grad-color: linear-gradient(to right, #0d47a1 , #2196f3);
+
 body {
     padding-top: 50px;
 }
@@ -10,4 +13,8 @@ body {
 
 .btn {
     text-transform: capitalize;
+}
+
+.blue-grad-color {
+    background: $blue-grad-color;
 }

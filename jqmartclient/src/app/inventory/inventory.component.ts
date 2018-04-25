@@ -10,9 +10,18 @@ import { InventoryItem } from './inventory-item';
 export class InventoryComponent implements OnInit {
 
   inventoryItems: InventoryItem[];
+  addBtnText: string;
+  memPriceText: string;
+  regPriceText: string;
+  qtyText: string; 
+  taxText: string;
 
   constructor(private inventoryService: InventoryService) {
-
+    this.addBtnText = 'Add To Cart';
+    this.memPriceText = 'Member';
+    this.regPriceText = 'Regular';
+    this.qtyText = 'Inventory';
+    this.taxText = 'Tax Status';
    }
 
   ngOnInit() {

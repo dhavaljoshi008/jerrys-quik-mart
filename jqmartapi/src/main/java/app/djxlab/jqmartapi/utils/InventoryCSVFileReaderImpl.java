@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -38,8 +39,8 @@ public class InventoryCSVFileReaderImpl implements InventoryFileReaderOps {
 				for(int i = 0; i < data.length; i++) {
 					data[i] = data[i].trim();
 				}
-				Item item = new Item(data[0], Integer.parseInt(data[1]), Double.parseDouble(data[2]), Double.parseDouble(data[3]), data[4].toLowerCase().equals("tax-exempt") ? TaxStatus.TAX_EXEMPT : TaxStatus.TAXABLE);
-				inventory.put(item.getName(), item);
+				Item item = new Item(UUID.randomUUID().toString(), data[0], Integer.parseInt(data[1]), Double.parseDouble(data[2]), Double.parseDouble(data[3]), data[4].toLowerCase().equals("tax-exempt") ? TaxStatus.TAX_EXEMPT : TaxStatus.TAXABLE);
+				inventory.put(item.getId(), item);
 			}
 			bufferedReader.close();
 		} 

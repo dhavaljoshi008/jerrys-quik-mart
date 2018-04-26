@@ -1,1 +1,4 @@
 <div><button type="button" class="btn btn-round cart-btn waves-light" mdbWavesEffect><i class="fa fa-shopping-cart mt-1 mr-1 mb-1 ml-1"></i></button><span style="color: #ffd600">100</span></div>
+<div *ngFor="let itemId of getCartMapKeys()">
+  {{ cartMap.get(itemId).name }} {{ cartMap.get(itemId).quantity }}
+</div>

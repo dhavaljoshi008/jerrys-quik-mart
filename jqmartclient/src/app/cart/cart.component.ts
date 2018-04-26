@@ -10,11 +10,11 @@ import { CartService } from './cart.service';
 })
 export class CartComponent implements OnInit, OnDestroy {
 
-  cartItems: Item[];
+  cartMap: Map<string, Item> = new Map();
+
   private subscription: Subscription;
 
   constructor(private cartService: CartService) {
-
    }
 
   ngOnInit() {
@@ -23,7 +23,11 @@ export class CartComponent implements OnInit, OnDestroy {
 
   getCartItems() {
     this.subscription = this.cartService.cartSubject
-    .subscribe(cartItems => this.cartItems = cartItems);
+    .subscribe(cartMap => this.cartMap = cartMap);
+  }
+
+  getCartMapKeys() {
+      return Array.from(this.cartMap.keys());
   }
 
   ngOnDestroy() {

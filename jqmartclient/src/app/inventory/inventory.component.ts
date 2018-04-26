@@ -37,6 +37,6 @@ export class InventoryComponent implements OnInit {
   }
 
   addToCart(item: Item) {
-    this.cartService.addToCart(item);
+    this.cartService.addToCart({id: item.id, name: item.name, quantity: 1, memberPrice: item.memberPrice, regularPrice: item.regularPrice, taxStatus: item.taxStatus}); // Create a new item object and add it to cart.
   }
 }

@@ -19,7 +19,7 @@ export class CartItemListComponent implements OnInit {
   private subscription: Subscription;
 
   constructor(private cartService: CartService) {
-    this.colHeadings = ['Item Name', 'Regular Price', 'Member Price', 'Quantity', 'Tax Status'];
+    this.colHeadings = ['Item', 'Regular Price', 'Member Price', 'Quantity', 'Tax Status'];
     this.emptyCartText = 'Empty'
   }
 

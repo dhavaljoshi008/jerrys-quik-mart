@@ -12,9 +12,15 @@ export class CartComponent implements OnInit, OnDestroy {
 
   cartMap: Map<string, Item> = new Map();
 
+  modalTitle: string;
+
+  modalBtnText: string;
+
   private subscription: Subscription;
 
   constructor(private cartService: CartService) {
+    this.modalTitle = 'Cart';
+    this.modalBtnText = 'Proceed To Checkout'
    }
 
   ngOnInit() {

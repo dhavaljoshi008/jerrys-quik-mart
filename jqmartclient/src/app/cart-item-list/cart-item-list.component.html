@@ -1,0 +1,22 @@
+<div class="row">
+  <div *ngFor="let col of colHeadings" class="col font-bold">
+    {{ col | titlecase }}
+  </div>
+</div>
+<div class="row" *ngFor="let itemId of getCartMapKeys()">
+    <div class=col>
+      {{ cartMap.get(itemId).name | titlecase }}
+    </div>
+    <div class=col>
+      {{ cartMap.get(itemId).regularPrice | currency }}
+    </div>
+    <div class=col>
+      {{ cartMap.get(itemId).memberPrice | currency }}
+    </div>
+    <div class=col>
+      <button>-</button> {{ cartMap.get(itemId).quantity }} <button (click)="addToCart(cartMap.get(itemId))">+</button> 
+    </div>
+    <div class=col>
+      {{ cartMap.get(itemId).taxStatus }}
+    </div>
+</div>

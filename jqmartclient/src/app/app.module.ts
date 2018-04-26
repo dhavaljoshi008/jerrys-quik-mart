@@ -8,6 +8,7 @@ import { NavbarModule } from './navbar/navbar.module';
 import { AppRoutingModule } from './/app-routing.module';
 import { InventoryService } from './inventory/inventory.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CartService } from './cart/cart.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [InventoryService],
+  providers: [InventoryService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

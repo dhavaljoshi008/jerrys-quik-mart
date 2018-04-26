@@ -4,12 +4,14 @@ import { NavbarComponent } from './navbar.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CartModule } from '../cart/cart.module';
 
 @NgModule({
   imports: [
     CommonModule,
     MDBBootstrapModule.forRoot(),
-    RouterModule
+    RouterModule,
+    CartModule
   ],
   declarations: [ NavbarComponent ],
   exports: [ NavbarComponent ],

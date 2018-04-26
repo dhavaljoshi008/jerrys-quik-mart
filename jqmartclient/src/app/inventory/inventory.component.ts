@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryService } from './inventory.service';
 import { Item } from './item';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'app-inventory',
@@ -16,7 +17,7 @@ export class InventoryComponent implements OnInit {
   qtyText: string; 
   taxText: string;
 
-  constructor(private inventoryService: InventoryService) {
+  constructor(private inventoryService: InventoryService, private cartService: CartService) {
     this.addBtnText = 'Add To Cart';
     this.memPriceText = 'Member';
     this.regPriceText = 'Regular';
@@ -33,5 +34,9 @@ export class InventoryComponent implements OnInit {
     .subscribe(inventoryItems => {
       this.inventoryItems = inventoryItems;
     })
+  }
+
+  addToCart(item: Item) {
+    this.cartService.addToCart(item);
   }
 }

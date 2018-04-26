@@ -39,7 +39,7 @@
             </div>
             
             <!-- Button -->
-            <a class="btn btn-primary blue-grad-color" [ngClass]="{'disabled': inventoryItem.quantity <= 0 }">{{ addBtnText }}</a>
+            <a (click)="addToCart(inventoryItem)" class="btn btn-primary blue-grad-color" [ngClass]="{'disabled': inventoryItem.quantity <= 0 }">{{ addBtnText }}</a>
         
           </div>
         

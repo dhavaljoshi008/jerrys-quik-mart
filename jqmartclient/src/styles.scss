@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
-$blue-grad-color: linear-gradient(to right, #0d47a1 , #2196f3);
+@import 'app/utils/variables.scss';
 
 body {
     padding-top: 50px;
@@ -17,4 +16,15 @@ body {
 
 .blue-grad-color {
     background: $blue-grad-color;
+}
+
+.yellow-grad-color {
+    background: $yellow-grad-color;
+}
+
+.btn-round {
+    padding: 0;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
 }

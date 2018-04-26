@@ -1,0 +1,8 @@
+@import '../utils/variables.scss';
+
+.cart-btn {
+    background: $yellow-grad-color;
+}
+.cart-btn:active {
+    background:  #ffd600;
+}

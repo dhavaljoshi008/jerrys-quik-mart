@@ -1,4 +1,4 @@
-export interface InventoryItem {
+export interface Item {
 
     id: string;
 

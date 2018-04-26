@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { InventoryItem } from './inventory-item';
+import { Item } from './item';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
@@ -20,10 +20,10 @@ export class InventoryService {
     this.inventoryUrl = `http://${this.host}:${this.port}/${this.basePath}`;
   }
 
-  getAllInventoryItems(): Observable<InventoryItem[]> {
-    return this.http.get<InventoryItem[]>(this.inventoryUrl+'/inventory')
+  getAllInventoryItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(this.inventoryUrl+'/inventory')
     .pipe(
-      catchError<InventoryItem[], InventoryItem[]>(this.handleError('getAllInventoryItems', []))
+      catchError<Item[], Item[]>(this.handleError('getAllInventoryItems', []))
     )
   }
 

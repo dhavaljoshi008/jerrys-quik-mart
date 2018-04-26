@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryService } from './inventory.service';
-import { InventoryItem } from './inventory-item';
+import { Item } from './item';
 
 @Component({
   selector: 'app-inventory',
@@ -9,7 +9,7 @@ import { InventoryItem } from './inventory-item';
 })
 export class InventoryComponent implements OnInit {
 
-  inventoryItems: InventoryItem[];
+  inventoryItems: Item[];
   addBtnText: string;
   memPriceText: string;
   regPriceText: string;

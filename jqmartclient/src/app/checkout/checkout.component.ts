@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from '../cart/cart.service';
 import { Item } from '../inventory/item';
 import { Subscription } from 'rxjs/Subscription';
+import { CheckoutService } from './checkout.service';
+import { Order } from '../checkout/order'; 
 
 
 @Component({
@@ -55,7 +57,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   private taxPercent: number;
 
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private checkoutService: CheckoutService) {
     this.titleText = 'Order Summary'
     this.pricingDropdown = 'Regular Order';
     this.optionText = 'Member Order';
@@ -74,6 +76,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.totalText = 'Order Total';
     this.savingsAmount = 0;
     this.savingsText = 'You Saved';
+    this.checkoutBtnText = 'Checkout And Print';
   }
 
   ngOnInit() {
@@ -120,8 +123,16 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       return Array.from(this.cartMap.keys());
   }
 
+  checkoutAndPrint() {
+    let order: Order[] = []
+    this.cartMap.forEach(item => order.push({id: item.id, quantity: item.quantity}));
+    this.checkoutService.checkoutOrder(order)
+    .subscribe(success => {
+      this.cartService.emptyCart();
+    });
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
 }

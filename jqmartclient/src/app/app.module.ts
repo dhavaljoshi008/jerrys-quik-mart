@@ -9,6 +9,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { InventoryService } from './inventory/inventory.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CartService } from './cart/cart.service';
+import { CheckoutService } from './checkout/checkout.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { CartService } from './cart/cart.service';
     HttpClientModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [InventoryService, CartService],
+  providers: [InventoryService, CartService, CheckoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

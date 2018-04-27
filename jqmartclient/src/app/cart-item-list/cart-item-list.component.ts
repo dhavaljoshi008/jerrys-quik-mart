@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Item } from '../inventory/item';
 import { CartService } from '../cart/cart.service';
 import { Subscription } from 'rxjs/Subscription';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './cart-item-list.component.html',
   styleUrls: ['./cart-item-list.component.scss']
 })
-export class CartItemListComponent implements OnInit {
+export class CartItemListComponent implements OnInit, OnDestroy {
 
   cartMap: Map<string, Item> = new Map();
 
@@ -18,21 +18,38 @@ export class CartItemListComponent implements OnInit {
 
   checkoutBtnText: string;
 
+  subTotal: [number, number];
+  subTotalText: string;
+
+  totalItemsInCart: number;
+
   private subscription: Subscription;
 
+  private childSubscription1: Subscription;
+
   constructor(private cartService: CartService) {
-    this.colHeadings = ['Item', 'Regular Price', 'Member Price', 'Quantity', 'Tax Status'];
+    this.colHeadings = ['Item', 'Member Price', 'Regular Price', 'Quantity', 'Tax Status'];
     this.emptyCartBtnText = 'Empty Cart';
     this.checkoutBtnText = 'Proceed To Checkout';
+    this.subTotalText = 'Sub Total';
+    this.totalItemsInCart = 0;
+    this.subTotal = [0, 0];
   }
 
   ngOnInit() {
     this.getCartItems();
+    this.getSubTotal();
   }
 
   getCartItems() {
     this.subscription = this.cartService.cartItems
     .subscribe(cartMap => this.cartMap = cartMap);
+  }
+
+  getSubTotal() {
+    this.childSubscription1 = this.cartService.cartSubTotal
+    .subscribe(subTotal => this.subTotal = subTotal);
+    this.subscription.add(this.childSubscription1);
   }
 
   getCartMapKeys() {

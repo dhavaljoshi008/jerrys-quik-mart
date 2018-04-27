@@ -58,8 +58,9 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   getSubTotal() {
-    this.childSubscription2 = this.cartService.cartSubTotal
+    this.childSubscription1 = this.cartService.cartSubTotal
     .subscribe(subTotal => this.subTotal = subTotal);
+    this.subscription.add(this.childSubscription1);
   }
 
   getTotalItemsInCart() {

@@ -37,7 +37,7 @@ export class CartComponent implements OnInit, OnDestroy {
     this.modalTitle = 'Cart';
     this.modalBtnText = 'View Cart and Checkout'
     this.labelText1 = 'Total Items';
-    this.labelText2 = 'SubTotal';
+    this.labelText2 = 'Sub Total';
     this.labelText3 = 'Member';
     this.labelText4 = 'Regular';
    }

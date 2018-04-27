@@ -30,7 +30,6 @@ export class CartItemListComponent implements OnInit, OnDestroy {
   constructor(private cartService: CartService) {
     this.colHeadings = ['Item', 'Member Price', 'Regular Price', 'Quantity', 'Tax Status'];
     this.emptyCartBtnText = 'Empty Cart';
-    this.checkoutBtnText = 'Proceed To Checkout';
     this.subTotalText = 'Sub Total';
     this.totalItemsInCart = 0;
     this.subTotal = [0, 0];

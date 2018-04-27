@@ -11,12 +11,18 @@ export class CartService {
   cartItems = new BehaviorSubject<Map<string, Item>>(this.cartMap);
 
 
-  cartSubTotal = new BehaviorSubject<[number, number]>([0, 0]); // Member Price, Regular Price.
+  cartSubTotal = new BehaviorSubject<[number, number]>([0, 0]); // Member Sub Total, Regular Sub Total.
+
+  private taxPercent: number;
+
+  cartTax = new BehaviorSubject<[number, number]>([0, 0]); // Member Tax, Regular Tax.
+
+  cartTotal = new BehaviorSubject<[number, number]>([0, 0]); // Member Total, Regular Total.
   
   totalItemsInCart = new BehaviorSubject<number>(0);
  
   constructor() {
-
+    this.taxPercent = 6.5;
   }
 
   private addToCartMap(item: Item): void {
@@ -33,6 +39,8 @@ export class CartService {
 
   private calculateAndBroadCast() {
     this.calculateSubTotal();
+    this.calculateTax();
+    this.calculateTotal();
     this.calculateTotalItemsInCart();
   }
   
@@ -56,14 +64,41 @@ export class CartService {
     this.calculateAndBroadCast();
   }
 
+  // Set tax percent.
+  setTaxPercent(taxPercent: number): void {
+    this.taxPercent = taxPercent;
+  }
+
+  // Calculate total tax.
+  calculateTax(): void {
+    let tax: [number, number] = [0, 0]; // Initialize local var.
+    this.cartMap.forEach(item => {
+      if(item.taxStatus.toLowerCase() === 'taxable') {
+        tax[0] += item.memberPrice * item.quantity * (this.taxPercent/100);
+        tax[1] += item.regularPrice * item.quantity * (this.taxPercent/100);
+      }
+    });
+    this.cartTax.next(tax); // Broadcast Tax.
+  }
+
   // Calculate member and regular sub-total.
   calculateSubTotal(): void {
-    let subTotal:[number, number] = [0, 0];
+    let subTotal:[number, number] = [0, 0]; // Initialize local var.
     this.cartMap.forEach(item => {
       subTotal[0] += item.memberPrice * item.quantity;
       subTotal[1] += item.regularPrice * item.quantity;
     });
     this.cartSubTotal.next(subTotal); // Broadcast sub-total.
+  }
+
+  // Calculate total cost.
+  calculateTotal(): void {
+    let memberSubTotal = this.cartSubTotal.getValue()["0"];
+    let regularSubTotal = this.cartSubTotal.getValue()["1"];
+    let memberTax = this.cartTax.getValue()["0"];
+    let regularTax = this.cartTax.getValue()["1"];
+    let total: [number, number] = [(memberSubTotal + memberTax), (regularSubTotal + regularTax)];
+    this.cartTotal.next(total); // Broadcast total cost.
   }
 
   // Calculate total items in the cart.

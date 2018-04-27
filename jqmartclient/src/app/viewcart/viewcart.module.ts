@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ViewcartComponent } from './viewcart.component';
 import { ViewcartRoutingModule } from './/viewcart-routing.module';
 import { CartItemListModule } from '../cart-item-list/cart-item-list.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     ViewcartRoutingModule,
-    CartItemListModule
+    CartItemListModule,
+    RouterModule
   ],
   declarations: [ViewcartComponent]
 })

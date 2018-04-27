@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewcartComponent implements OnInit {
 
-  constructor() { }
+  checkoutBtnText:string;
+
+  constructor() { 
+    this.checkoutBtnText = 'Proceed To Checkout';
+  }
 
   ngOnInit() {
   }

@@ -19,6 +19,11 @@ const ROUTES: Routes = [
     data: { preload: true }
   },
   {
+    path: 'viewcart',
+    loadChildren: 'app/viewcart/viewcart.module#ViewcartModule',
+    data: { preload: true }
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'home'

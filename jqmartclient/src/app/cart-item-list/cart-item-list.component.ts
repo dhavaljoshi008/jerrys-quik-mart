@@ -14,13 +14,16 @@ export class CartItemListComponent implements OnInit {
 
   colHeadings: string[];
 
-  emptyCartText: string;
+  emptyCartBtnText: string;
+
+  checkoutBtnText: string;
 
   private subscription: Subscription;
 
   constructor(private cartService: CartService) {
     this.colHeadings = ['Item', 'Regular Price', 'Member Price', 'Quantity', 'Tax Status'];
-    this.emptyCartText = 'Empty'
+    this.emptyCartBtnText = 'Empty Cart';
+    this.checkoutBtnText = 'Proceed To Checkout';
   }
 
   ngOnInit() {

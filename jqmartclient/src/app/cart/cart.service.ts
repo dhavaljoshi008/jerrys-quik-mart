@@ -58,6 +58,7 @@ export class CartService {
     this.totalItemsInCart.next(totalItems);
   }
 
+  // Remove all the items from the cart.
   emptyCart(): void {
     this.cartMap.clear();
     this.cartSubject.next(this.cartMap);

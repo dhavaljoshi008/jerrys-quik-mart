@@ -48,7 +48,7 @@
               </div>
               
               <div class="text-center mt-2">
-                  <button class="btn btn-warning yellow-grad-color mb-2 waves-light" mdbWavesEffect>{{ modalBtnText | titlecase }}</button>
+                  <button routerLink="/checkout" (click)="cartModal.hide()" class="btn btn-warning yellow-grad-color mb-2 waves-light" mdbWavesEffect>{{ modalBtnText | titlecase }}</button>
               </div>
 
             </div>

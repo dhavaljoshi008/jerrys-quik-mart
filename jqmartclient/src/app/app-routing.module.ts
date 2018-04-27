@@ -14,14 +14,19 @@ const ROUTES: Routes = [
     data: { preload: true }
   },
   {
+    path: 'checkout',
+    loadChildren: 'app/checkout/checkout.module#CheckoutModule',
+    data: { preload: true }
+  },
+  {
     path: '',
-    pathMatch: 'prefix',
+    pathMatch: 'full',
     redirectTo: 'home'
   },
   { 
     path: '**', 
     redirectTo: 'home'
-  }
+  },
 ]
 
 @NgModule({

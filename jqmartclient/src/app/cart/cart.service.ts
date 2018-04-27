@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../inventory/item';
-import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
@@ -8,8 +7,9 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class CartService {
 
-  cartSubject = new Subject<Map<string, Item>>();
   cartMap: Map<string, Item> = new Map();
+  cartItems = new BehaviorSubject<Map<string, Item>>(this.cartMap);
+
 
   cartSubTotal = new BehaviorSubject<[number, number]>([0, 0]); // Member Price, Regular Price.
   
@@ -34,7 +34,7 @@ export class CartService {
   // Add item to the cart.
   addToCart(item: Item): void {
     this.addToCartMap(item);
-    this.cartSubject.next(this.cartMap);
+    this.cartItems.next(this.cartMap);
     this.calculateSubTotal();
     this.calculateTotalItemsInCart();
   }
@@ -61,7 +61,7 @@ export class CartService {
   // Remove all the items from the cart.
   emptyCart(): void {
     this.cartMap.clear();
-    this.cartSubject.next(this.cartMap);
+    this.cartItems.next(this.cartMap);
     this.calculateSubTotal();
     this.calculateTotalItemsInCart();
   }

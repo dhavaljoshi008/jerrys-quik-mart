@@ -49,7 +49,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   getCartItems() {
-    this.subscription = this.cartService.cartSubject
+    this.subscription = this.cartService.cartItems
     .subscribe(cartMap => this.cartMap = cartMap);
   }
 

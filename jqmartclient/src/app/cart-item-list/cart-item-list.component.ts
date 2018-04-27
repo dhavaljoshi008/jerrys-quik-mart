@@ -28,7 +28,7 @@ export class CartItemListComponent implements OnInit {
   }
 
   getCartItems() {
-    this.subscription = this.cartService.cartSubject
+    this.subscription = this.cartService.cartItems
     .subscribe(cartMap => this.cartMap = cartMap);
   }
 

@@ -64,6 +64,13 @@ export class CartService {
     this.calculateAndBroadCast();
   }
 
+  // Remove all the items with the specified itemId from the cart.
+  removeAllItemsById(itemId: string): void {
+    this.cartMap.delete(itemId);
+    this.cartItems.next(this.cartMap); // Brodcast cart items.
+    this.calculateAndBroadCast();
+  }
+
   // Set tax percent.
   setTaxPercent(taxPercent: number): void {
     this.taxPercent = taxPercent;

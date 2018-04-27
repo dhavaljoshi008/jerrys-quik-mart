@@ -12,7 +12,7 @@
       <td>{{ cartMap.get(itemId).regularPrice | currency }}</td>
       <td><span class="text-nowrap"><button (click)="removeFromCart(itemId)" class="hand-cursor">-</button> {{ cartMap.get(itemId).quantity }} <button (click)="addToCart(cartMap.get(itemId))" class="hand-cursor">+</button></span></td>
       <td>{{ cartMap.get(itemId).taxStatus }}</td>
-      <td><i class="fa fa-close hand-cursor"></i></td>
+      <td><i (click)="removeAllItemsById(itemId)" class="fa fa-close hand-cursor"></i></td>
     </tr>
   </tbody>
   <tfoot>

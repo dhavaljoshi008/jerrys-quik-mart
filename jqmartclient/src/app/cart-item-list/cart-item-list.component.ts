@@ -43,6 +43,10 @@ export class CartItemListComponent implements OnInit {
     this.cartService.addToCart({id: item.id, name: item.name, quantity: 1, memberPrice: item.memberPrice, regularPrice: item.regularPrice, taxStatus: item.taxStatus}); // Create a new item object and add it to cart.
   }
 
+  removeFromCart(itemId: string) {
+    this.cartService.removeFromCart(itemId);
+  }
+
   emptyCart() {
     this.cartService.emptyCart();
   }

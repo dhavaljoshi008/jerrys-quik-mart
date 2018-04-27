@@ -30,13 +30,30 @@ export class CartService {
       this.cartMap.set(item.id, item);
     }
   }
+
+  private calculateAndBroadCast() {
+    this.calculateSubTotal();
+    this.calculateTotalItemsInCart();
+  }
   
   // Add item to the cart.
   addToCart(item: Item): void {
     this.addToCartMap(item);
-    this.cartItems.next(this.cartMap);
-    this.calculateSubTotal();
-    this.calculateTotalItemsInCart();
+    this.cartItems.next(this.cartMap); // Broadcast cart items.
+    this.calculateAndBroadCast();
+  }
+
+  // Remove single item from cart of type specified by itemId.
+  removeFromCart(itemId: string): void {
+    let item = this.cartMap.get(itemId);
+    if(item.quantity <= 0) {
+      this.cartMap.delete(itemId); // Remove entry from cart if quantity is <= 0.
+    }
+    else {
+      item.quantity -= 1;
+    }
+    this.cartItems.next(this.cartMap); // Broadcast cart items.
+    this.calculateAndBroadCast();
   }
 
   // Calculate member and regular sub-total.
@@ -46,7 +63,7 @@ export class CartService {
       subTotal[0] += item.memberPrice * item.quantity;
       subTotal[1] += item.regularPrice * item.quantity;
     });
-    this.cartSubTotal.next(subTotal);
+    this.cartSubTotal.next(subTotal); // Broadcast sub-total.
   }
 
   // Calculate total items in the cart.
@@ -55,14 +72,13 @@ export class CartService {
     this.cartMap.forEach(item => {
       totalItems += item.quantity;
     });
-    this.totalItemsInCart.next(totalItems);
+    this.totalItemsInCart.next(totalItems); // Broadcast total items in the cart.
   }
 
   // Remove all the items from the cart.
   emptyCart(): void {
     this.cartMap.clear();
-    this.cartItems.next(this.cartMap);
-    this.calculateSubTotal();
-    this.calculateTotalItemsInCart();
+    this.cartItems.next(this.cartMap); // Broadcast cart items.
+    this.calculateAndBroadCast();
   }
 }

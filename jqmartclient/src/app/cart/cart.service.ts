@@ -20,6 +20,8 @@ export class CartService {
   cartTotal = new BehaviorSubject<[number, number]>([0, 0]); // Member Total, Regular Total.
   
   totalItemsInCart = new BehaviorSubject<number>(0);
+
+  transactionNumber = new BehaviorSubject<number>(1);
  
   constructor() {
     this.taxPercent = 6.5;
@@ -122,5 +124,10 @@ export class CartService {
     this.cartMap.clear();
     this.cartItems.next(this.cartMap); // Broadcast cart items.
     this.calculateAndBroadCast();
+  }
+
+  // Increment transaction number and broadcast.
+  incrementTransactionNumber() {
+    this.transactionNumber.next(this.transactionNumber.getValue() + 1);
   }
 }

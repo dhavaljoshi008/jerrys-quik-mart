@@ -44,5 +44,13 @@
         </tr> 
     </tfoot>
   </table>
+
+  <div id="cash-input">
+    <div class="md-form">
+        <input [(ngModel)]="cash" mdbInputDirective type="number" id="form1" class="form-control" min="1" oninput="validity.valid||(value='');"  onKeyPress="if(this.value.length==6) return false;">
+        <label for="form1" class="">{{ cashLabel }}</label>
+    </div>
+  </div>
+  
   <button (click)="checkoutAndPrint()" routerLink="/shop" class="btn btn-warning yellow-grad-color mb-2 waves-light" mdbWavesEffect>{{ checkoutBtnText | titlecase }}</button>
         

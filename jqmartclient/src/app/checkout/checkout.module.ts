@@ -4,6 +4,7 @@ import { CheckoutComponent } from './checkout.component';
 import { CheckoutRoutingModule } from './checkout-routing.module';
 import { CartItemListModule } from '../cart-item-list/cart-item-list.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     CommonModule,
     CheckoutRoutingModule,
     CartItemListModule,
-    MDBBootstrapModule.forRoot()
+    FormsModule,
+    MDBBootstrapModule.forRoot(),
   ],
   declarations: [CheckoutComponent]
 })

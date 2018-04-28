@@ -49,6 +49,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   transactionNumber: number; 
 
   cash: number;
+  cashLabel: string;
 
   change: number;
 
@@ -90,6 +91,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.totalItemsInCart = 0;
     this.transactionNumber = 1;
     this.cash = 0;
+    this.cashLabel = 'Enter Cash (USD)'
     this.change = 0;
   }
 
@@ -171,6 +173,8 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     let total = (this.memberPriceEnabled ? this.total[0] : this.total[1]).toFixed(2);
     let savings =  this.memberPriceEnabled ? this.savingsText.concat(': ').concat('$').concat(this.savingsAmount.toFixed(2)).concat('!') : '';
 
+    // Calculate change.
+    this.change = this.cash - (this.memberPriceEnabled ? this.total[0] : this.total[1]);
 
     let delimiter = ', '
     orderSummary = orderSummary.concat('ITEM').concat(delimiter)

@@ -1,0 +1,56 @@
+<h1>{{ titleText | titlecase }}</h1>
+<div style="text-align: right"> 
+    <!--Dropdown-->                              
+    <div class="btn-group" dropdown>
+        <button dropdownToggle class="btn btn-primary blue-grad-color dropdown-toggle waves-light" type="button" mdbWavesEffect> 
+            {{ pricingDropdown | titlecase }}
+        </button>
+        <div class="dropdown-menu">
+            <a (click)="applyOptionPrice()" class="dropdown-item">{{ optionText | titlecase }}</a>
+        </div>
+    </div>       
+</div>
+<table class="table table-striped mt-5">
+    <thead class="blue-grad-color white-text">
+      <tr>
+        <th><span class="text-nowrap">{{ itemColTitle | titlecase }}</span></th>
+        <th><span class="text-nowrap">{{ priceColTitle | titlecase }}</span></th>
+        <th>{{ quantityColTitle | titlecase }}</th>
+        <th><span class="text-nowrap">{{ taxColTitle | titlecase }}</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let itemId of getCartMapKeys()">
+        <td><span class="text-nowrap">{{ cartMap.get(itemId).name | titlecase }}</span></td>
+        <td>{{ (memberPriceEnabled ? cartMap.get(itemId).memberPrice : cartMap.get(itemId).regularPrice) | currency }}</td>
+        <td>{{ cartMap.get(itemId).quantity }}</td>
+        <td>{{ cartMap.get(itemId).taxStatus }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td><h5><span class="text-nowrap">{{ subTotalText | titlecase }}</span></h5></td>
+            <td><h5>{{ (memberPriceEnabled ? subTotal[0] : subTotal[1]) | currency }}</h5></td>
+        </tr>
+        <tr>
+            <td><h5><span class="text-nowrap">{{ taxText | titlecase }}</span></h5></td>
+            <td><h5>{{ (memberPriceEnabled ? tax[0] : tax[1]) | currency }}</h5></td>
+        </tr>
+        <tr> 
+            <td><h5><span class="text-nowrap">{{ totalText | titlecase }}</span></h5></td>
+            <td><h5>{{ (memberPriceEnabled ? total[0] : total[1]) | currency }}</h5></td>
+            <td><h5><span class="text-nowrap">{{ memberPriceEnabled ? savingsText : null | titlecase }}</span></h5></td>
+            <td><h5>{{ (memberPriceEnabled ? savingsAmount : null) | currency }}</h5></td>
+        </tr> 
+    </tfoot>
+  </table>
+
+  <div id="cash-input">
+    <div class="md-form">
+        <input [(ngModel)]="cash" mdbInputDirective type="number" id="form1" class="form-control" min="1" oninput="validity.valid||(value='');"  onKeyPress="if(this.value.length==6) return false;">
+        <label for="form1" class="">{{ cashLabel }}</label>
+    </div>
+  </div>
+  
+  <button [disabled]="(cash < (memberPriceEnabled ? total[0] : total[1])) || totalItemsInCart <= 0" (click)="checkoutAndPrint()" routerLink="/greet" class="btn btn-warning yellow-grad-color mb-2 waves-light" mdbWavesEffect>{{ checkoutBtnText | titlecase }}</button>
+  <button (click)="cancelTransaction()" routerLink="/home" class="btn btn-primary blue-grad-color mb-2 waves-light" mdbWavesEffect>{{ cancelText | titlecase }}</button>

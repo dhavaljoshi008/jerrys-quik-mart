@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'app/utils/variables.scss';
+
+body {
+    padding-top: 50px;
+}
+
+.main-content {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.btn {
+    text-transform: capitalize;
+}
+
+.blue-grad-color {
+    background: $blue-grad-color;
+}
+
+.yellow-grad-color {
+    background: $yellow-grad-color;
+}
+
+.yellow-accent-color { // yellow accent-4
+    color: #ffd600;
+}
+
+.btn-round {
+    padding: 0;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+
+.modal-backdrop {
+    z-index: 1029;
+}
+
+.font-bold {
+    font-weight: 600;
+}
+
+.btn-small {
+    height: 20px;
+    width: 80px;
+    font-size: 1rem;
+}
+
+.hand-cursor {
+    cursor: pointer;
+}

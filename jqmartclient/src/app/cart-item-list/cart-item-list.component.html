@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <thead class="blue-grad-color white-text">
+    <tr>
+      <th *ngFor="let col of colHeadings" scope="col"><span class="text-nowrap">{{ col }}</span></th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let itemId of getCartMapKeys()">
+      <td><span class="text-nowrap">{{ cartMap.get(itemId).name | titlecase }}</span></td>
+      <td>{{ cartMap.get(itemId).memberPrice | currency }}</td>
+      <td>{{ cartMap.get(itemId).regularPrice | currency }}</td>
+      <td><span class="text-nowrap"><button (click)="removeFromCart(itemId)" class="hand-cursor">-</button> {{ cartMap.get(itemId).quantity }} <button (click)="addToCart(cartMap.get(itemId))" class="hand-cursor">+</button></span></td>
+      <td>{{ cartMap.get(itemId).taxStatus }}</td>
+      <td><i (click)="removeAllItemsById(itemId)" class="fa fa-close hand-cursor"></i></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <td><h5>{{ subTotalText }}</h5></td>
+    <td><h5>{{ subTotal[0] | currency }}</h5></td>
+    <td><h5>{{ subTotal[1] | currency }}</h5></td>
+    <td></td>
+    <td></td>
+    <td><button (click)="emptyCart()" class="btn btn-primary blue-grad-color">{{ emptyCartBtnText | titlecase }}</button></td>
+  </tfoot>
+</table>

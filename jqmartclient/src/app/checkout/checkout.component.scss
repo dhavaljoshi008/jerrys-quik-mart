@@ -1,0 +1,8 @@
+input.counter-danger ~ span.text-danger, input.counter-success ~ span.text-success {
+    visibility: hidden !important;
+}
+
+#cash-input {
+    width: 50%; 
+    margin: 0 auto;
+}

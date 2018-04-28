@@ -52,5 +52,5 @@
     </div>
   </div>
   
-  <button [disabled]="cash < (memberPriceEnabled ? total[0] : total[1])" (click)="checkoutAndPrint()" routerLink="/shop" class="btn btn-warning yellow-grad-color mb-2 waves-light" mdbWavesEffect>{{ checkoutBtnText | titlecase }}</button>
+  <button [disabled]="cash < (memberPriceEnabled ? total[0] : total[1])" (click)="checkoutAndPrint()" routerLink="/greet" class="btn btn-warning yellow-grad-color mb-2 waves-light" mdbWavesEffect>{{ checkoutBtnText | titlecase }}</button>
   <button (click)="cancelTransaction()" routerLink="/home" class="btn btn-primary blue-grad-color mb-2 waves-light" mdbWavesEffect>{{ cancelText | titlecase }}</button>

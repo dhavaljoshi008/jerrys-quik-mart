@@ -14,13 +14,18 @@ const ROUTES: Routes = [
     data: { preload: true }
   },
   {
+    path: 'viewcart',
+    loadChildren: 'app/viewcart/viewcart.module#ViewcartModule',
+    data: { preload: true }
+  },
+  {
     path: 'checkout',
     loadChildren: 'app/checkout/checkout.module#CheckoutModule',
     data: { preload: true }
   },
   {
-    path: 'viewcart',
-    loadChildren: 'app/viewcart/viewcart.module#ViewcartModule',
+    path: 'greet',
+    loadChildren: 'app/greet/greet.module#GreetModule',
     data: { preload: true }
   },
   {

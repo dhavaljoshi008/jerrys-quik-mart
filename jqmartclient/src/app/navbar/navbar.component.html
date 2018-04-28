@@ -1,0 +1,24 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue fixed-top">
+           
+    <!-- Navbar brand -->
+    <logo><a routerLink="/home" class="navbar-brand" href="#">Jerry's Quik Mart</a></logo>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li *ngFor="let menuItem of menuItems" class="nav-item" routerLinkActive="active">
+                <a routerLink="{{ menuItem.link }}" class="nav-link waves-light" mdbWavesEffect>{{ menuItem.caption }}</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li><cart></cart><li>
+        </ul>
+        <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->

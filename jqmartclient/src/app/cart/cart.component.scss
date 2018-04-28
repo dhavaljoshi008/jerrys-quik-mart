@@ -1,0 +1,9 @@
+@import '../utils/variables.scss';
+
+.cart-btn {
+    background: $yellow-grad-color;
+}
+
+#empty-cart-btn {
+    padding: 0.4rem;
+}

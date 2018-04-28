@@ -47,6 +47,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   totalItemsInCart: number;
 
   transactionNumber: number; 
+  cancelText: string;
 
   cash: number;
   cashLabel: string;
@@ -90,6 +91,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.checkoutBtnText = 'Checkout And Print';
     this.totalItemsInCart = 0;
     this.transactionNumber = 1;
+    this.cancelText = 'Cancel Transaction';
     this.cash = 0;
     this.cashLabel = 'Enter Cash (USD)'
     this.change = 0;
@@ -163,6 +165,10 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       this.cartService.incrementTransactionNumber();
       this.cartService.emptyCart();
     });
+  }
+
+  cancelTransaction() {
+    this.cartService.emptyCart();
   }
 
   buildAndPrintTransaction() {

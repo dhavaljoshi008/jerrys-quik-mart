@@ -25,7 +25,7 @@
                 </div>
               </div>
 
-              <button id="empty-cart-btn" (click)="emptyCart()" class="btn btn-primary blue-grad-color">Empty Cart</button>
+              <button id="empty-cart-btn" [disabled]="this.totalItemsInCart <= 0" (click)="emptyCart()" class="btn btn-primary blue-grad-color">Empty Cart</button>
 
               <hr>
               <h5>{{ labelText2 | titlecase}} </h5>
@@ -48,7 +48,7 @@
               </div>
               
               <div class="text-center mt-2">
-                  <button routerLink="/viewcart" (click)="cartModal.hide()" class="btn btn-warning yellow-grad-color mb-2 waves-light" mdbWavesEffect>{{ modalBtnText | titlecase }}</button>
+                  <button [disabled]="this.totalItemsInCart <= 0" routerLink="/viewcart" (click)="cartModal.hide()" class="btn btn-warning yellow-grad-color mb-2 waves-light" mdbWavesEffect>{{ modalBtnText | titlecase }}</button>
               </div>
 
             </div>
